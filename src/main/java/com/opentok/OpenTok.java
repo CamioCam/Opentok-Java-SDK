@@ -116,7 +116,7 @@ public class OpenTok {
      */
     public String generateToken(String sessionId, TokenOptions tokenOptions) throws OpenTokException {
         List<String> sessionIdParts = null;
-        if(sessionId == null || sessionId == "") {
+        if(sessionId == null || sessionId.equals("")) {
             throw new InvalidArgumentException("Session not valid");
         }
 
@@ -383,7 +383,7 @@ public class OpenTok {
      * @return The Archive object. This object includes properties defining the archive, including the archive ID.
      */
     public Archive startArchive(String sessionId, String name) throws OpenTokException {
-        if (sessionId == null || sessionId == "") {
+        if (sessionId == null || sessionId.equals("")) {
             throw new InvalidArgumentException("Session not valid");
         }
         // TODO: do validation on sessionId and name
