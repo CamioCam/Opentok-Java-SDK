@@ -12,8 +12,7 @@ import java.util.Map;
 import java.util.concurrent.Future;
 
 public class HttpClient implements URLFetchService {
-
-    private URLFetchService urlFetchService;
+    
     private final String apiUrl;
     private final int apiKey;
     private final String apiSecret;
@@ -22,7 +21,6 @@ public class HttpClient implements URLFetchService {
         this.apiKey = apiKey;
         this.apiUrl = apiUrl;
         this.apiSecret = apiSecret;
-        urlFetchService = URLFetchServiceFactory.getURLFetchService();
     }
 
     public String createSession(Map<String, Collection<String>> params) throws RequestException {
@@ -83,6 +81,7 @@ public class HttpClient implements URLFetchService {
         httpRequest.setHeader(new HTTPHeader("User-Agent", "Opentok-Java-SDK/" + Version.VERSION));
         httpRequest.setHeader(new HTTPHeader("X-TB-PARTNER-AUTH", this.apiKey + ":" + this.apiSecret));
 
+        URLFetchService urlFetchService = URLFetchServiceFactory.getURLFetchService();
         return urlFetchService.fetch(httpRequest);
     }
 
