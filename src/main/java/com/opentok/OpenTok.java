@@ -1,5 +1,22 @@
 package com.opentok;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.opentok.exception.InvalidArgumentException;
+import com.opentok.exception.OpenTokException;
+import com.opentok.exception.RequestException;
+import com.opentok.util.Crypto;
+import com.opentok.util.HttpClient;
+import org.xml.sax.InputSource;
+
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
@@ -7,26 +24,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.opentok.exception.OpenTokException;
-import com.opentok.exception.InvalidArgumentException;
-import com.opentok.exception.RequestException;
-import com.opentok.util.Crypto;
-import com.opentok.util.HttpClient;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
-import org.xml.sax.InputSource;
 
 /**
 * Contains methods for creating OpenTok sessions, generating tokens, and working with archives.

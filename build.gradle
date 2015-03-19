@@ -38,10 +38,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
     testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '1.45'
     testCompile group: 'commons-lang', name: 'commons-lang', version: '2.6'
-    compile group: 'com.ning', name: 'async-http-client', version: '1.6.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.3.1'
     compile group: 'commons-validator', name: 'commons-validator', version: '1.4.0'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
-    compile group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.13'
+    compile group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.18'
     // TODO: find out how to initialize these dependencies properly, or remove them
     //compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.5'
     //compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.5'
@@ -75,13 +75,13 @@ uploadArchives {
             pom.project {
                 name 'OpenTok Java SDK'
                 packaging 'jar'
-                description 'The OpenTok Java SDK lets you generate sessions and tokens for OpenTok applications. This version of the SDK also includes support for working with OpenTok 2.0 archives.'
+                description 'The OpenTok Java SDK lets you generate sessions and tokens for OpenTok applications. This version of the SDK is functional with Google App Engine, but does not yet support archives.'
                 url 'http://www.tokbox.com/opentok'
 
                 scm {
-                    connection 'scm:git:https://github.com/opentok/Opentok-Java-SDK.git'
-                    developerConnection 'scm:git:https://github.com/opentok/Opentok-Java-SDK.git'
-                    url 'opentok.github.io/opentok-java-sdk'
+                    connection 'scm:git:https://github.com/CamioCam/Opentok-Java-SDK.git'
+                    developerConnection 'scm:git:https://github.com/CamioCam/Opentok-Java-SDK.git'
+                    url 'https://github.com/CamioCam/Opentok-Java-SDK'
                 }
 
                 licenses {
@@ -103,6 +103,12 @@ uploadArchives {
                         name 'Ankur Oberoi'
                         email 'aoberoi@gmail.com'
                         organization 'TokBox, Inc.'
+                    }
+                    developer {
+                        id 'ramatevish'
+                        name 'R. Alex Matevish'
+                        email 'alex@matevi.sh'
+                        organization 'CamioCam, Inc.'
                     }
                 }
             }
