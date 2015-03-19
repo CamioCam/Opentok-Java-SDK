@@ -61,9 +61,7 @@ public class OpenTok {
     public OpenTok(int apiKey, String apiSecret, String apiUrl) {
         this.apiKey = apiKey;
         this.apiSecret = apiSecret.trim();
-        this.client = new HttpClient.Builder(apiKey, apiSecret)
-                .apiUrl(apiUrl)
-                .build();
+        this.client = new HttpClient(apiKey, apiSecret, apiUrl);
     }
 
     /**
