@@ -5,11 +5,11 @@
 The OpenTok Java SDK lets you generate
 [sessions](http://tokbox.com/opentok/tutorials/create-session/) and
 [tokens](http://tokbox.com/opentok/tutorials/create-token/) for [OpenTok](http://www.tokbox.com/)
-applications that run on the JVM. This version of the SDK also includes support for working
-with [OpenTok 2.0 archives](http://tokbox.com/#archiving).
+applications that run on the JVM. This version contains modifications so that it is able to run on AppEngine.
 
-If you are updating from a previous version of this SDK, see
-[Important changes since v2.2.0](#important-changes-since-v220).
+Simply put, AppEngine doesn't appreciate certain HTTP libraries and as it happens Opentok-SDK-Java uses one of these, com.ning.http.client, to make it's API calls. Instead, this version uses URLFetchService to make calls. It should be noted this SDK does *not* support the use of Archives (I never bothered porting those calls), but this would be trivial to implement.
+
+To build this libarary, simply run `gradle build` and ignore all the failing tests. Your JAR should be in the `/build/libs` folder.
 
 
 # Installation
